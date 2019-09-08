@@ -1,0 +1,52 @@
+<% include partials/header.ejs %>
+<div class="container">
+    <% if (message) { %>
+        <p class="text-center text-danger"><%= message %></p>
+    <% } %>
+
+    <% if (user) { %>
+        <form class="add-user-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="first-name">First Name</label>
+                    <input type="text" class="form-control" name="first_name" id="first-name" value="<%= user.first_name %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" class="form-control" name="last_name" id="last-name" value="<%= user.last_name %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" name="username" id="username" value="<%= user.user_name %>" required disabled title="Username cannot be edited.">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="number">Number</label>
+                    <input type="number" class="form-control" name="number" id="number" placeholder="Number" value="<%= user.number %>" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="eventname">eventname</label>
+                    <select id="eventname" name="eventname" class="form-control" required>
+                        <option selected><%= user.eventname %></option>
+                        <option>Moksha-NSUT</option>
+                        <option>EngiFest-DTU</option>
+                        <option>Diwali-India_Gate</option>
+                        <option>Cricket-FSKS</option>
+                        <option>CodingBlocks-pitampura</option>
+                        <option>CNworkshop-pitampura</option>
+                        <option>AirShow-hindon</option>
+                        <option>ArmyParade-subrotoPark</option>
+                        
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success float-right">Update user</button>
+        </form>
+    <% } else { %>
+        <p class="text-center">user Not Found. Go <a href="/add">here</a> to add users.</p>
+    <% } %>
+</div>
+</div>
+</body>
+</html>
